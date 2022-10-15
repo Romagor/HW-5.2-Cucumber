@@ -33,12 +33,8 @@ public class DashboardPage {
         return Integer.parseInt(value);
     }
 
-    public void setDepositButton(String id) {
-        if (id.equals("1")) {
-            depositButton.first().click();
-        }
-        if (id.equals("2")) {
-            depositButton.last().click();
-        }
-    }
+    public TransferPage setDepositButton(String number) {
+        $$(".list__item").findBy(text(number.substring(12, 16))).$("button").click();
+        return new TransferPage();
+   }
 }
